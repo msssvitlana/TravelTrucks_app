@@ -1,15 +1,16 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import Header from '../components/Header/Header'
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import './globals.css';
+import Header from '../components/Header/Header';
+import TanStackProvider from '@/components/TanStackProvider/TanStackProvider';
 const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
+  variable: '--font-inter',
+  subsets: ['latin'],
 });
 
 export const metadata: Metadata = {
-  title: "TravelTrucks App",
-description: "A platform for planning and exploring truck travel routes",
+  title: 'TravelTrucks App',
+  description: 'A platform for planning and exploring truck travel routes',
 };
 
 export default function RootLayout({
@@ -20,15 +21,17 @@ export default function RootLayout({
   return (
     <html lang="en" className="ligtht">
       <body className={`${inter.variable}`}>
-        <Header/>
+        <TanStackProvider>
+          <Header />
 
-        <main>{children}</main>
+          <main>{children}</main>
 
-        <footer>
-          <p>
-            Created <time dateTime='2025'>2025</time>
-          </p>
-        </footer>
+          <footer>
+            <p>
+              Created <time dateTime="2025">2025</time>
+            </p>
+          </footer>
+        </TanStackProvider>
       </body>
     </html>
   );
