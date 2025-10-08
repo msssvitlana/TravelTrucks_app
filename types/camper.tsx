@@ -1,3 +1,14 @@
+export type GalleryImage = {
+  thumb: string;
+  original: string;
+};
+
+export type Review = {
+  reviewer_name: string;
+  reviewer_rating: number;
+  comment: string;
+};
+
 export type Camper = {
   id: string;
   name: string;
@@ -22,9 +33,20 @@ export type Camper = {
   microwave: boolean;
   gas: boolean;
   water: boolean;
+  gallery: GalleryImage[];
+  reviews: Review[];
 };
 
 export type CamperListResponse = {
   campers: Camper[];
+  filters: Filter;
+  favorites: string[];
+  page: number;
   total: number;
+};
+
+export type Filter = {
+  location: string;
+  type: string;
+  equipment: string[];
 };

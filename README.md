@@ -1,36 +1,29 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Домашня сторінка: повинна містити банер з основним закликом до дії.
+Каталог: сторінка, де відображаються всі доступні транспортні засоби з можливістю фільтрації за певними критеріями (локація, тип транспорту, наявність кондиціонера, кухні тощо) та можливістю додати кемпер до обраних.
+Сторінка окремого кемпера: сторінка з детальним описом обраного кемпера, галереєю фотографій, відгуками користувачів, формою для бронювання. За замовчуванням активна вкладка Features і відображається її вміст, але є можливість перемкнутись на вкладку Reviews. Для опиcу характеристик використовуй наступні властивості, якщо вони присутні на данному кемпері: transmission, engine, AC, bathroom, kitchen, TV, radio, refrigerator, microwave, gas, water. Для опиcу деталей використовуй наступні властивості: form, length, width, height, tank, consumption.
 
-## Getting Started
+3. Маршрутизація:
 
-First, run the development server:
+/ - Домашня сторінка.
+/catalog - Сторінка каталогу.
+/catalog/:id- Сторінка окремого кемпера.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+4. Стан додатку:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Використовувати Zustand для управління станом.
+Створити глобальний стан для зберігання списку транспортних засобів, стану фільтрів та списку обраних.
+При відправці запиту за фільтрованими транспортними засобами важливо попередньо скинути попередні результати пошуку, щоб забезпечити актуальність та точність відображуваних даних відповідно до нових критеріїв фільтрації.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+5. Функціональні вимоги:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Перехід на сторінку каталогу: користувач повинен мати можливість натиснути на кнопку "View Now" на головній сторінці, щоб перейти на сторінку каталогу.
+Фільтрація транспортних засобів (обов’язково має виконуватися на бекенді, не на фронті). Користувач повинен мати можливість фільтрувати транспортні засоби за:
+локацією (текстове поле)
+типом кузова (може бути обрано один тип кузова)
+наявністю кондиціонера, кухні, та іншими критеріями (може бути обрано декілька критеріїв).
+Обране: користувач повинен мати можливість додавати транспортні засоби до списку обраних. Список обраних кемперів має зберігатись при оновленні сторінки.
+Ціна оренди має бути прописана одним значенням (наприклад, 8000). В UI - виведено через крапку (8000.00).
+Перехід на сторінку деталей: користувач повинен мати можливість натиснути на кнопку "Show more" на картці транспортного засобу на сторінці каталогу, щоб перейти на сторінку з детальним описом цього транспортного засобу.
+Довантаження карток: на сторінці каталогу повинна бути кнопка "Load More", при кліку на яку завантажуються додаткові картки транспортних засобів з урахуванням обраних фільтрів.(пагінація повинна бути виконана на бекенді).
+Відгуки: на сторінці окремого кемпера повинні відображатися відгуки інших користувачів, які оцінюють кемпер за п'ятизірковою шкалою.
+Форма бронювання: користувач повинен мати можливість забронювати кемпер, заповнивши форму на сторінці окремого кемпера. Результатом вдалої відправки форми має бути нотифікація про вдале бронювання.

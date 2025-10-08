@@ -10,6 +10,9 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: 'TravelTrucks App',
+  icons: {
+    icon: '/icons/favicon.ico',
+  },
   description: 'A platform for planning and exploring truck travel routes',
 };
 

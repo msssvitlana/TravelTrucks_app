@@ -1,15 +1,10 @@
-/* 404.module.css */
-
 .container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #f7f9fc;
   text-align: center;
-  padding: 2rem;
-  color: #2d3748;
 }
 
 .title {
@@ -23,4 +18,17 @@
   font-size: 1.25rem;
   color: #4a5568;
   max-width: 500px;
+}
+
+.link {
+  color: white;
+  background-color: #f5a8a8;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.link:hover {
+  background-color: #f38c92;
 }
