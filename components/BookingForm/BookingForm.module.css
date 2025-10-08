@@ -1,0 +1,97 @@
+.mainContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid #dadde1;
+  border-radius: 10px;
+  padding: 44px;
+}
+.titleWrapper {
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.title {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #101828;
+}
+.description {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #6c717b;
+}
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 24px;
+  width: 527px;
+  height: 420px;
+}
+.input {
+  padding: 18px;
+  border: none;
+  border-radius: 12px;
+  background-color: #f7f7f7;
+  height: 60px;
+  transition: background-color 0.2s ease;
+}
+.input:focus {
+  border-color: #ffcbd3;
+  outline: none;
+}
+.submitBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #fff;
+  border-radius: 200px;
+  width: 166px;
+  height: 56px;
+  background-color: #e44848;
+  transition: background-color 0.2s ease;
+}
+.submitButton:hover,
+.submitButton:focus {
+  background-color: #d84343;
+}
+.submitButton:disabled {
+  background-color: #b1a3a6;
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+.dateInput {
+  display: block;
+  border: 2px solid rgba(255, 255, 255, 0);
+  border-radius: 12px;
+  padding: 8px 12px;
+  background: rgba(0, 0, 0, 0.05);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.6);
+  padding-right: 32px;
+  width: 100%;
+  cursor: pointer;
+  transition:
+    boder 0.3s ease,
+    outline 0.3s ease color 0.3s ease;
+}
+
+.dateInput:focus {
+  border: 2px solid #ffcbd3;
+  outline: none;
+  color: #000000;
+}
+.textarea {
+}
