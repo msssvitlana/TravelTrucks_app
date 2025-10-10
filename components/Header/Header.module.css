@@ -1,7 +1,7 @@
 .header {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
-  padding-left: 24px;
+  padding: 24px;
   background-color: #f7f7f7;
 }
 

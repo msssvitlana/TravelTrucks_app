@@ -38,7 +38,7 @@ export type Camper = {
 };
 
 export type CamperListResponse = {
-  campers: Camper[];
+  items: Camper[];
   filters: Filter;
   favorites: string[];
   page: number;
