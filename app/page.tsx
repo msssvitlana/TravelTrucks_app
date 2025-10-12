@@ -29,7 +29,7 @@ const Home = () => {
             <p className={css.description}>You can find everything you want in our catalog</p>
           </div>
 
-          <Link href="/catalog" className={css.homeBtn}>
+          <Link href="/campers" className={css.homeBtn}>
             View Now
           </Link>
         </div>

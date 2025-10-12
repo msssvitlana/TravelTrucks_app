@@ -3,6 +3,7 @@
   grid-template-columns: 1fr auto 1fr;
   padding: 24px;
   background-color: #f7f7f7;
+  width: 100%;
 }
 
 .navigation {

@@ -1,0 +1,110 @@
+.sidebar {
+  list-style-type: none;
+
+  border: none;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  border: none;
+  padding-left: 64px;
+  width: 360px;
+}
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 360px;
+}
+.formLabel {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #6c717b;
+}
+
+.input {
+  border-radius: 12px;
+  padding: 18px;
+  background-color: #f7f7f7;
+  border: none;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #101828;
+}
+.equipmentTitle {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #475467;
+}
+.iconTitle {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #101828;
+}
+.iconLabel {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: #101828;
+}
+.checkboxItem {
+  border: 1px solid #dadde1;
+  border-radius: 12px;
+  transition: border-color 0.2s;
+}
+.checkboxItem.active {
+  border-color: var(--button-hover);
+}
+.checkboxItem:focus,
+.checkboxItem:hover {
+  border-color: var(--button-hover);
+}
+.checkboxGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.customCheckbox {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 112px;
+  height: 96px;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.hiddenCheckbox {
+  opacity: 0;
+}
+
+.submitBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 10px;
+  color: var(--white);
+  background-color: var(--button);
+  border-radius: 200px;
+  width: 166px;
+  height: 56px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  transition: background-color 0.2s;
+}
+
+.submitBtn:focus,
+.submitBtn:hover {
+  background-color: var(--button-hover);
+}

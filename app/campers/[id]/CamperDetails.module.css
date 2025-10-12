@@ -1,29 +1,21 @@
 .itemWrapper {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   border: 1px solid #dadde1;
   border-radius: 20px;
   padding: 24px;
   gap: 24px;
 }
-.imageWrapper {
+.gallery {
   display: flex;
+  flex-direction: row;
+  gap: 16px;
   align-items: center;
-  justify-content: center;
+  padding: 28px 0;
 }
 .image {
   border-radius: 10px;
   object-fit: cover;
-}
-.textWrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-.namePrice {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 .name {
   font-weight: 600;
@@ -47,6 +39,7 @@
   align-items: center;
   justify-content: flex-start;
   gap: 16px;
+  margin-bottom: 8px;
 }
 
 .rating {
@@ -69,33 +62,40 @@
   font-size: 16px;
   line-height: 1.5;
   color: #475467;
-  -webkit-line-clamp: 1;
-  line-clamp: 1;
-  -webkit-box-orient: vertical;
-  display: -webkit-box;
-  overflow: hidden;
+  margin-bottom: 60px;
 }
-.btn {
+.btnContainer {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 200px;
-  padding-block: 16px;
-  width: 166px;
-  background-color: var(--button);
-  color: var(--white);
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: -0.01em;
+  gap: 40px;
+  position: relative;
+  padding-bottom: 24px;
 }
-.favBtn {
+.tabButton {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
   background-color: var(--white);
 }
-.favBtn.active {
-  fill: var(--button-hover);
+.tabButton:hover {
+  text-decoration: underline;
+  text-decoration-color: red;
+  text-underline-offset: 24px;
 }
-.btn:hover,
-.btn:focus {
-  background-color: var(--button-hover);
+
+.btnContainer::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 100%;
+  background-color: var(--gray-light);
+  z-index: 1;
+}
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 44px;
 }

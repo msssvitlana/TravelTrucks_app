@@ -6,7 +6,7 @@ type Props = {
   params: Promise<{ id: string }>;
 };
 
-const CamperDetails = async ({ params }: Props) => {
+const CamperDetailsPage = async ({ params }: Props) => {
   const { id } = await params;
   const queryClient = new QueryClient();
 
@@ -16,8 +16,8 @@ const CamperDetails = async ({ params }: Props) => {
   });
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <CamperDetailsClient />;
+      <CamperDetailsClient />
     </HydrationBoundary>
   );
 };
-export default CamperDetails;
+export default CamperDetailsPage;

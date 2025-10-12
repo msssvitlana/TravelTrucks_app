@@ -1,13 +1,15 @@
 .mainContent {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
   flex-direction: column;
   border: 1px solid #dadde1;
   border-radius: 10px;
   padding: 44px;
 }
 .titleWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   gap: 8px;
   margin-bottom: 24px;
 }
@@ -15,7 +17,6 @@
   font-weight: 600;
   font-size: 20px;
   line-height: 1.2;
-  color: #101828;
 }
 .description {
   font-weight: 400;
@@ -29,16 +30,14 @@
   justify-content: flex-start;
   flex-direction: column;
   gap: 24px;
-  width: 527px;
-  height: 420px;
 }
 .input {
   padding: 18px;
   border: none;
   border-radius: 12px;
   background-color: #f7f7f7;
-  height: 60px;
   transition: background-color 0.2s ease;
+  width: 527px;
 }
 .input:focus {
   border-color: #ffcbd3;
@@ -80,8 +79,8 @@
   font-size: 14px;
   line-height: 1.5;
   color: rgba(0, 0, 0, 0.6);
-  padding-right: 32px;
-  width: 100%;
+  padding: 18px;
+  width: 527;
   cursor: pointer;
   transition:
     boder 0.3s ease,
@@ -94,4 +93,10 @@
   color: #000000;
 }
 .textarea {
+  border-radius: 10px;
+  border: none;
+  width: 527px;
+  padding: 18px;
+  resize: none;
+  background-color: #f7f7f7;
 }

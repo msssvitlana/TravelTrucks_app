@@ -101,30 +101,15 @@ const BookingForm = () => {
               )}
             </Field>
             <div className={css.fieldWrapper}>
-              <label htmlFor="date" className={css.label}>
-                Booking Date*
-              </label>
               <DatePicker
                 selected={values.dateFrom}
                 onChange={(date: Date | null) => setFieldValue('dateFrom', date)}
                 minDate={new Date()}
                 dateFormat="dd.MM.yyyy"
-                placeholderText="Start date"
+                placeholderText="Booking Date*"
                 className={css.dateInput}
               />
               <ErrorMessage name="dateFrom">
-                {(msg) => <div className={css.errorText}>{msg}</div>}
-              </ErrorMessage>
-
-              <DatePicker
-                selected={values.dateTo}
-                onChange={(date: Date | null) => setFieldValue('dateTo', date)}
-                minDate={values.dateFrom || new Date()}
-                dateFormat="dd.MM.yyyy"
-                placeholderText="End date"
-                className={css.dateInput}
-              />
-              <ErrorMessage name="dateTo">
                 {(msg) => <div className={css.errorText}>{msg}</div>}
               </ErrorMessage>
             </div>
