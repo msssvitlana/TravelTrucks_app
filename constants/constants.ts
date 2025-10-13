@@ -48,7 +48,7 @@ export const FILTER_FEATURES = [
 
 export const VEHICLE_TYPE = [
   {
-    key: 'van',
+    key: 'panelTruck',
     icon: 'icon-bi_grid-1x2',
     label: 'Van',
   },

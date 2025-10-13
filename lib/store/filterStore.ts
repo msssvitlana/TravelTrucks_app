@@ -1,99 +1,65 @@
 import { create } from 'zustand';
-import { Filter, CamperListResponse, Camper } from '@/types/camper';
+import { fetchCampers } from '@/lib/api';
+import { Camper, Filter } from '@/types/camper';
 
-const initialFilters: Filter = {
-  location: '',
-  type: '',
-  equipment: [],
-};
-
-type CamperStore = {
+interface CamperStore {
   campers: Camper[];
   filters: Filter;
   page: number;
-  limit: number;
-  hasMore: boolean;
   isLoading: boolean;
-  setFilters: (filters: Filter) => void;
-  fetchCampers: (isLoadMore?: boolean) => Promise<void>;
-  loadMoreCampers: () => Promise<void>;
+  hasMore: boolean;
+  setFilters: (filters: Partial<Filter>) => void;
+  loadCampers: (append?: boolean) => Promise<void>;
   resetCampers: () => void;
-};
+}
 
-export const useCamperStore = create<CamperStore>((set, get) => ({
-  campers: [],
-  filters: initialFilters,
-  page: 1,
-  limit: 4,
-  hasMore: true,
-  isLoading: false,
+export const useCamperStore = create<CamperStore>((set, get) => {
+  const limit = 4;
 
-  setFilters: (filters) =>
-    set({
-      filters,
-      campers: [],
-      page: 1,
-      hasMore: true,
-    }),
-
-  resetCampers: () => {
-    set({
-      campers: [],
-      page: 1,
-      hasMore: true,
-    });
-  },
-
-  fetchCampers: async (isLoadMore = false) => {
-    const { filters, page, limit, campers } = get();
-    const nextPage = isLoadMore ? page + 1 : 1;
+  const loadCampers = async (append = false) => {
+    const { filters, page, campers, isLoading, hasMore } = get();
+    if (isLoading || !hasMore) return;
 
     set({ isLoading: true });
 
     try {
-      const params = new URLSearchParams();
+      const response = await fetchCampers(filters, page, limit);
+      const newCampers = response.items;
 
-      if (filters.location && filters.location.trim()) {
-        params.append('location', filters.location.trim());
+      if (newCampers.length === 0) {
+        set({ isLoading: false, hasMore: false });
+        return;
       }
-
-      if (filters.type && filters.type.trim()) {
-        params.append('type', filters.type.trim());
-      }
-
-      if (filters.equipment && filters.equipment.length > 0) {
-        filters.equipment.forEach((eq) => {
-          if (eq.trim()) params.append('equipment', eq.trim());
-        });
-      }
-
-      params.append('page', nextPage.toString());
-      params.append('limit', limit.toString());
-
-      const response = await fetch(`/api/campers?${params.toString()}`, {
-        method: 'GET',
-      });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const data: CamperListResponse = await response.json();
+      const hasMoreData = newCampers.length === limit;
 
       set({
-        campers: isLoadMore ? [...campers, ...data.items] : data.items,
-        page: nextPage,
-        hasMore: data.items.length === limit,
+        campers: append ? [...campers, ...newCampers] : newCampers,
+        isLoading: false,
+        hasMore: hasMoreData,
+        page: append ? page + 1 : 2,
       });
     } catch (error) {
-      console.error('Error fetching campers:', error);
-    } finally {
+      console.error(error);
       set({ isLoading: false });
     }
-  },
+  };
 
-  loadMoreCampers: async () => {
-    const { fetchCampers } = get();
-    await fetchCampers(true);
-  },
-}));
+  return {
+    campers: [],
+    filters: { location: '', type: '', equipment: [] },
+    page: 1,
+    isLoading: false,
+    hasMore: true,
+
+    setFilters: (newFilters) =>
+      set((state) => ({
+        filters: { ...state.filters, ...newFilters },
+        page: 1,
+        campers: [],
+        hasMore: true,
+      })),
+
+    loadCampers,
+    resetCampers: () => set({ campers: [], page: 1, hasMore: true }),
+  };
+});

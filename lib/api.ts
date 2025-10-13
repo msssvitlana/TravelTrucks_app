@@ -13,11 +13,6 @@ export const getCamperDetails = async (id: string) => {
   return res.data;
 };
 
-export const getFilters = async () => {
-  const res = await axios.get<Filter[]>('/categories');
-  return res.data;
-};
-
 const CAMPERS_PER_PAGE = 4;
 
 export async function fetchCampers(
@@ -26,22 +21,27 @@ export async function fetchCampers(
   limit = CAMPERS_PER_PAGE,
 ): Promise<CamperListResponse> {
   try {
-    const params: Record<string, string | number | string[]> = {
-      page,
-      limit,
-      ...(filters.location.trim() && { location: filters.location.trim() }),
-      ...(filters.type && { type: filters.type }),
-    };
+    const params = new URLSearchParams();
 
-    if (filters.equipment.length > 0) {
-      params.equipment = filters.equipment;
+    params.append('page', page.toString());
+    params.append('limit', limit.toString());
+
+    if (filters.location.trim()) {
+      params.append('location', filters.location.trim());
+    }
+    console.log('Filters type:', filters.type);
+    if (filters.type) {
+      params.append('form', filters.type);
     }
 
-    const response = await axios.get<CamperListResponse>('/campers', { params });
+    filters.equipment.forEach((eq) => {
+      params.append(eq, 'true');
+    });
+
+    const response = await axios.get<CamperListResponse>(`/campers?${params.toString()}`);
 
     return response.data;
   } catch (error) {
-    console.error('Failed to fetch campers:', error);
     throw new Error('Failed to fetch campers. Please try again later.');
   }
 }
