@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import 'modern-normalize';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import Header from '../components/Header/Header';
@@ -9,11 +10,40 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'TravelTrucks App',
+  title: 'CamperRent — оренда кемперів',
   icons: {
     icon: '/icons/favicon.ico',
   },
-  description: 'A platform for planning and exploring truck travel routes',
+  description: 'Зручна платформа для оренди кемперів по Україні. Подорожуйте з комфортом!',
+  keywords: [
+    'оренда кемпера',
+    'кемпери Україна',
+    'подорож на кемпері',
+    'будинок на колесах',
+    'кемпер на прокат',
+  ],
+  openGraph: {
+    title: 'CamperRent — оренда кемперів по Україні',
+    description: 'Орендуйте сучасний кемпер для подорожей. Відкривайте нові місця з комфортом!',
+    url: 'travel-trucks-app-ajzh.vercel.app',
+    siteName: 'CamperRent',
+    images: [
+      {
+        url: '/image/homePage/Picture.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'CamperRent — сучасні кемпери для оренди в Україні',
+      },
+    ],
+    type: 'website',
+    locale: 'uk_UA',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'CamperRent — оренда кемперів для подорожей',
+    description: 'Сучасні будинки на колесах для комфортної мандрівки по Україні.',
+    images: ['/image/homePage/Picture.jpg'],
+  },
 };
 
 export default function RootLayout({

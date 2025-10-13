@@ -1,23 +1,5 @@
 import css from './page.module.css';
-import { Metadata } from 'next';
 import Link from 'next/link';
-export const metadata: Metadata = {
-  title: 'Camper Home Page',
-  description: "Camper's Catalog App Description",
-  openGraph: {
-    title: 'Camper Home Page',
-    description: 'Camper App Description',
-    url: '',
-    images: [
-      {
-        url: '',
-        width: 1200,
-        height: 630,
-        alt: 'Camper card',
-      },
-    ],
-  },
-};
 
 const Home = () => {
   return (
