@@ -44,8 +44,6 @@
   border-radius: 200px;
   border: none;
   background-color: var(--button);
-  padding-block: 16px;
-  padding-inline: 60px;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;

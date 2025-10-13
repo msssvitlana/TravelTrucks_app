@@ -3,6 +3,11 @@
   flex-direction: column;
   gap: 44px;
 }
+.item {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
 .header {
   display: flex;
   flex-direction: column;
@@ -20,4 +25,19 @@
   font-size: 16px;
   line-height: 1.5;
   color: #475467;
+}
+.userAvatar {
+  background: var(--badges);
+  border-radius: 60px;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  display: flex;
+}
+.userAvatarName {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.33333;
+  color: #e44848;
 }

@@ -60,6 +60,7 @@ const CamperDetailsClient = () => {
                 width={292}
                 height={320}
                 className={css.image}
+                priority={index === 0}
               />
             </div>
           ))}

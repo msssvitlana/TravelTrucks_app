@@ -15,6 +15,9 @@ const ReviewsList = ({ reviews }: Props) => {
       <ul className={css.list}>
         {reviews.map((review, index) => (
           <li key={index} className={css.item}>
+            <div className={css.userAvatar}>
+              <p className={css.userAvatarName}>{review.reviewer_name.charAt(0).toUpperCase()}</p>
+            </div>
             <div className={css.header}>
               <div className={css.name}>{review.reviewer_name}</div>
               <div className={css.ratingIcon}>
@@ -22,9 +25,9 @@ const ReviewsList = ({ reviews }: Props) => {
                   <use href="/icons/filters.svg#icon-Property-1Pressed" />
                 </svg>
                 {review.reviewer_rating}
+                <p className={css.comment}>{review.comment}</p>
               </div>
             </div>
-            <p className={css.comment}>{review.comment}</p>
           </li>
         ))}
       </ul>

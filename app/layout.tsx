@@ -10,6 +10,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://travel-trucks-app-ajzh.vercel.app'),
   title: 'CamperRent — оренда кемперів',
   icons: {
     icon: '/icons/favicon.ico',
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'CamperRent — оренда кемперів по Україні',
     description: 'Орендуйте сучасний кемпер для подорожей. Відкривайте нові місця з комфортом!',
-    url: 'travel-trucks-app-ajzh.vercel.app',
+    url: 'https://travel-trucks-app-ajzh.vercel.app',
     siteName: 'CamperRent',
     images: [
       {
