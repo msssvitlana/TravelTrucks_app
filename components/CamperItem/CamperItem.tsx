@@ -32,7 +32,7 @@ const CamperItem = ({ item }: Props) => {
         <div className={css.namePrice}>
           <h2 className={css.name}>{item.name}</h2>
           <p className={css.price}>
-            €{item.price}
+            €{item.price.toFixed(2)}
             <button
               className={`${css.favBtn} ${isFavorite ? css.active : ''}`}
               onClick={() => toggleFavorite(item)}

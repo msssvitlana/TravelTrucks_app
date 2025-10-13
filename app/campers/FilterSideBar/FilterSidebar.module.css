@@ -8,14 +8,13 @@
   flex-direction: column;
   gap: 40px;
   border: none;
-  padding-left: 64px;
   width: 360px;
 }
 .formGroup {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  width: 360px;
+  /* width: 360px; */
 }
 .formLabel {
   font-weight: 400;
