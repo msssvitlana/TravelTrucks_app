@@ -1,11 +1,16 @@
 .itemWrapper {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   border: 1px solid #dadde1;
   border-radius: 20px;
   padding: 24px;
   gap: 24px;
+  /* width: 631px; */
+  min-height: 588px;
 }
+
 .gallery {
   display: flex;
   flex-direction: row;
@@ -21,7 +26,6 @@
   font-weight: 600;
   font-size: 24px;
   line-height: 1.33333;
-  color: #101828;
 }
 .price {
   display: flex;
@@ -29,7 +33,6 @@
   font-weight: 600;
   font-size: 24px;
   line-height: 1.33333;
-  color: #101828;
   gap: 12px;
 }
 
@@ -54,7 +57,6 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
-  color: #101828;
 }
 
 .description {
