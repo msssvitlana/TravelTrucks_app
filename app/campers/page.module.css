@@ -1,6 +1,5 @@
 .container {
   display: flex;
-  justify-content: center;
   flex-direction: row;
   min-height: 100vh;
   gap: 64px;

@@ -4,6 +4,8 @@
   flex-direction: column;
   border: 1px solid #dadde1;
   border-radius: 10px;
+  width: 641px;
+
   padding: 44px;
 }
 .titleWrapper {

@@ -49,7 +49,7 @@ const CamperDetailsClient = () => {
             {item.location}
           </p>
         </div>
-        <p className={css.price}>€{item.price}</p>
+        <p className={css.price}>€{item.price.toFixed(2)}</p>
 
         <div className={css.gallery}>
           {item.gallery.map((img, index) => (
