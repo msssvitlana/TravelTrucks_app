@@ -36,6 +36,7 @@
   display: flex;
 }
 .userAvatarName {
+  padding: 15px 21px;
   font-weight: 600;
   font-size: 24px;
   line-height: 1.33333;
