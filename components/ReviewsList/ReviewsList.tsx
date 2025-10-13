@@ -10,6 +10,19 @@ const ReviewsList = ({ reviews }: Props) => {
   if (!reviews || reviews.length === 0) {
     return <p className={css.empty}>No reviews yet.</p>;
   }
+
+  const renderStars = (rating: number) => {
+    const stars = [];
+    for (let i = 0; i < rating; i++) {
+      stars.push(
+        <svg key={i} width={16} height={16}>
+          <use href="/icons/filters.svg#icon-Property-1Pressed" />
+        </svg>,
+      );
+    }
+    return <div className={css.stars}>{stars}</div>;
+  };
+
   return (
     <div className={css.reviewsWrapper}>
       <ul className={css.list}>
@@ -20,13 +33,8 @@ const ReviewsList = ({ reviews }: Props) => {
             </div>
             <div className={css.header}>
               <div className={css.name}>{review.reviewer_name}</div>
-              <div className={css.ratingIcon}>
-                <svg width={16} height={16}>
-                  <use href="/icons/filters.svg#icon-Property-1Pressed" />
-                </svg>
-                {review.reviewer_rating}
-                <p className={css.comment}>{review.comment}</p>
-              </div>
+              <div className={css.ratingIcon}>{renderStars(review.reviewer_rating)}</div>
+              <p className={css.comment}>{review.comment}</p>
             </div>
           </li>
         ))}

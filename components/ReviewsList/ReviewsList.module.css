@@ -43,3 +43,8 @@
   line-height: 1.33333;
   color: #e44848;
 }
+.stars {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}

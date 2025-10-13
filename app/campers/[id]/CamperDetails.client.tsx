@@ -61,6 +61,7 @@ const CamperDetailsClient = () => {
                 height={320}
                 className={css.image}
                 priority={index === 0}
+                loading={index === 0 ? 'eager' : 'lazy'}
               />
             </div>
           ))}
