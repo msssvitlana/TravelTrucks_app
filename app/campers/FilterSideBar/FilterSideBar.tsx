@@ -15,25 +15,20 @@ const FilterSidebar = () => {
     type: '',
   };
 
-  const handleSubmit = async (values: Filter, { setSubmitting }: FormikHelpers<Filter>) => {
+  const handleSubmit = async (
+    values: Filter,
+    { setSubmitting, resetForm }: FormikHelpers<Filter>,
+  ) => {
     resetCampers();
     setFilters(values);
-    await loadCampers();
+    loadCampers();
+    resetForm();
     setSubmitting(false);
   };
 
   return (
     <div className={css.sidebar}>
-      <Formik
-        initialValues={initialValues}
-        onSubmit={(values, { resetForm }) => {
-          resetCampers();
-          setFilters(values);
-          loadCampers();
-          resetForm();
-        }}
-        enableReinitialize
-      >
+      <Formik initialValues={initialValues} onSubmit={handleSubmit} enableReinitialize>
         {({ isValid, isSubmitting }) => (
           <Form className={css.form}>
             <Field name="location">

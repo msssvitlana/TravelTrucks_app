@@ -10,7 +10,9 @@ const CamperList = ({ campers }: Props) => {
   return (
     <ul className={css.listWrapper}>
       {campers.map((camper) => (
-        <CamperItem key={camper.id} item={camper} />
+        <li key={camper.id}>
+          <CamperItem key={camper.id} item={camper} />
+        </li>
       ))}
     </ul>
   );

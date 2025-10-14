@@ -8,6 +8,9 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import css from './BookingForm.module.css';
 
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const FormSchema = Yup.object().shape({
   name: Yup.string()
     .min(1, 'Minimum 1 character')
@@ -21,12 +24,6 @@ const FormSchema = Yup.object().shape({
     .nullable()
     .required('Start date is required')
     .min(new Date(), 'Start date cannot be in the past'),
-
-  dateTo: Yup.date()
-    .nullable()
-    .required('End date is required')
-    .min(Yup.ref('dateFrom'), 'Select a date between today'),
-  comment: Yup.string().max(300, 'Comment must be at most 300 characters'),
 });
 
 type ValuesProps = {
@@ -49,8 +46,17 @@ const BookingForm = () => {
   const router = useRouter();
 
   const handleSubmit = async (values: ValuesProps) => {
-    console.log('Form submitted with:', values);
-    router.push('/catalog');
+    try {
+      console.log('Form submitted with:', values);
+
+      toast.success('Бронювання успішно надіслано!');
+
+      setTimeout(() => {
+        router.push('/campers');
+      }, 2000);
+    } catch (error) {
+      toast.error('Щось пішло не так. Спробуйте ще раз.');
+    }
   };
 
   return (
@@ -100,6 +106,7 @@ const BookingForm = () => {
                 </>
               )}
             </Field>
+
             <div className={css.fieldWrapper}>
               <DatePicker
                 selected={values.dateFrom}
@@ -130,16 +137,19 @@ const BookingForm = () => {
                 </>
               )}
             </Field>
+
             <button
               type="submit"
               disabled={isSubmitting || !dirty || !isValid}
-              className={css.submitBtn}
+              className={`${css.submitBtn} ${isSubmitting || !dirty || !isValid ? css.disabled : ''}`}
             >
               {isSubmitting ? 'Submitting...' : 'Send'}
             </button>
           </Form>
         )}
       </Formik>
+
+      <ToastContainer position="top-center" autoClose={3000} />
     </div>
   );
 };

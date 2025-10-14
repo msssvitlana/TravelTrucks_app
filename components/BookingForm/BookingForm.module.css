@@ -60,11 +60,11 @@
   background-color: #e44848;
   transition: background-color 0.2s ease;
 }
-.submitButton:hover,
-.submitButton:focus {
+.submitBtn:hover,
+.submitBtn:focus {
   background-color: #d84343;
 }
-.submitButton:disabled {
+.submitBtn:disabled {
   background-color: #b1a3a6;
   opacity: 0.5;
   cursor: not-allowed;

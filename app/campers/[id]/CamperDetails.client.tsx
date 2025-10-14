@@ -9,6 +9,7 @@ import BookingForm from '@/components/BookingForm/BookingForm';
 import ReviewsList from '@/components/ReviewsList/ReviewsList';
 import Image from 'next/image';
 import FeaturesList from '@/components/FeturesList/FeaturesList';
+import Loader from '@/components/Loader/Loader';
 
 const CamperDetailsClient = () => {
   const params = useParams();
@@ -27,7 +28,14 @@ const CamperDetailsClient = () => {
     refetchOnMount: false,
   });
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) {
+    return (
+      <div className={css.fullscreenLoader}>
+        <Loader />
+      </div>
+    );
+  }
+
   if (error || !item) return <p>Some error occurred...</p>;
 
   return (
