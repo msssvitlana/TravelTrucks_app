@@ -10,16 +10,19 @@ const ReviewsList = ({ reviews }: Props) => {
   if (!reviews || reviews.length === 0) {
     return <p className={css.empty}>No reviews yet.</p>;
   }
-
   const renderStars = (rating: number) => {
     const stars = [];
-    for (let i = 0; i < rating; i++) {
+
+    for (let i = 0; i < 5; i++) {
       stars.push(
         <svg key={i} width={16} height={16}>
-          <use href="/icons/filters.svg#icon-Property-1Pressed" />
+          <use
+            href={`/icons/filters.svg#${i < rating ? 'icon-Property-1Pressed' : 'icon-Property-Star'}`}
+          />
         </svg>,
       );
     }
+
     return <div className={css.stars}>{stars}</div>;
   };
 

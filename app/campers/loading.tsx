@@ -1,5 +1,6 @@
+import Loader from '@/components/Loader/Loader';
 const Loading = () => {
-  return <p>Завантаження каталогу...</p>;
+  return <Loader />;
 };
 
 export default Loading;

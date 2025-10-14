@@ -6,7 +6,6 @@ import css from './CamperItem.module.css';
 import Features from '@/components/Features/Features';
 import { useFavoritesStore } from '@/lib/store/favouritesStore';
 import Link from 'next/link';
-import Loader from '@/components/Loader/Loader';
 type Props = {
   item: Camper;
 };
